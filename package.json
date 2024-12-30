@@ -1,0 +1,20 @@
+{
+  "name": "async2sync2",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx ncc build node_modules/serialize-javascript/index.js -o serialize-javascript",
+    "test": "vitest --reporter=basic"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "serialize-javascript": "^6.0.2"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.3",
+    "vitest": "^2.1.8"
+  }
+}
