@@ -1,14 +1,19 @@
 {
   "name": "async2sync2",
   "version": "0.0.2",
-  "description": "",
   "main": "index.js",
+  "description": "A tool that converts asynchronous functions into synchronous functions. It achieves synchronous execution of asynchronous functions by extracting the function source code into a separate JavaScript file and running it.",
   "scripts": {
     "build": "npx ncc build node_modules/serialize-javascript/index.js -o serialize-javascript",
     "test": "vitest --reporter=basic"
   },
-  "keywords": [],
-  "author": "",
+  "homepage": "https://github.com/wll8/async2sync2",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wll8/async2sync2.git"
+  },
+  "keywords": ["async", "sync"],
+  "author": "wll8",
   "license": "MIT",
   "files": [
     "index.js",
