@@ -2,6 +2,17 @@ const serializePath = `${__dirname}/serialize-javascript/index.js`.replace(/\\/g
 const serialize = require(serializePath)
 
 /**
+ * 判断数据是否为 type, 或返回 type
+ * @param {*} data 
+ * @param {*} type 
+ * @returns 
+ */
+function isType(data, type = undefined) {
+  const dataType = Object.prototype.toString.call(data).match(/\s(.+)]/)[1].toLowerCase()
+  return type ? (dataType === type.toLowerCase()) : dataType
+}
+
+/**
  * 创建或删除一组文件
  * @param objOrArr {object|number} 要操作的内容
  * @param action {stirng} 操作方式 create remove
@@ -55,7 +66,7 @@ function async2sync2 (fn, opt = {}) {
   return (...args) => {
     const fs = require(`fs`)
     const { writeFileSync, readFileSync } = fs
-    const fnStr = fn.toString()
+    const fnStr = isType(fn, `function`) ? `async ${fn.toString()}` : fn.toString()
     const tempDir = (opt.tempDir || require(`os`).tmpdir()).replace(/\\/g, `/`)
     const fileObj = {
       fnFile: createNewFile(tempDir, `fn.js`),

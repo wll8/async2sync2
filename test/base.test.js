@@ -12,6 +12,14 @@ test(`base`, () => {
   expect(res).toStrictEqual(3)
 })
 
+test(`sync function`, () => {
+  const asyncFn = (a, b) => {
+    return a + b
+  }
+  const res = async2sync2(asyncFn)(1, 2)
+  expect(res).toStrictEqual(3)
+})
+
 test(`opt.returnDetail`, () => {
   const asyncFn = async (a, b) => {
     return a + b
